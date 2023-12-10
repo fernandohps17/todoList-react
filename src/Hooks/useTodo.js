@@ -7,11 +7,13 @@ export const useTodo = () => {
 
     // Funcion para obtener el localStorage
     const init = () => {
-        return JSON.parse()
-        // minuto 33 segundo 18
+        return JSON.parse(localStorage.getItem('todos')) || []
     }
 
-    const [state, dispatch] = useReducer(todoReducer, initialState, init)
+    const [todos, dispatch] = useReducer(todoReducer, initialState, init);
+
+    const todosCount = todos.length
+    const pendingTodosCount = todos.filter(todo => !todo.done).length
 
     useEffect(() => {
         localStorage.setItem('todos', JSON.stringify(todos))
@@ -57,6 +59,9 @@ export const useTodo = () => {
     }
 
     return {
+        todos,
+        todosCount,
+        pendingTodosCount,
         handleNewTodo,
         handleDeleteTodo,
         handleCompleteTodo,

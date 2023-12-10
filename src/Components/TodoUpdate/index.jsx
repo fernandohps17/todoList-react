@@ -1,11 +1,11 @@
 // import ICONS
 import { FaEdit } from 'react-icons/fa';
 
-export const TodoUpdate = () => {
+export const TodoUpdate = ({ todo, handleUpdateTodo }) => {
 
     return (
         <form>
-            <input type="text" className="input-update" name="description" value="Aprender React" placeholder="¿Qué hay que hacer?" />
+            <input type="text" className="input-update" name="description" value={todo.description} placeholder="¿Qué hay que hacer?" />
             <button className="btn-edit" type="submit"><FaEdit /></button>
         </form>
     )
