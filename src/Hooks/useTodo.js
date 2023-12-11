@@ -40,7 +40,7 @@ export const useTodo = () => {
     // Funcion para completar un Todo
     const handleCompleteTodo = id => {
         const action = {
-            type: "CompleteTodo",
+            type: "Complete Todo",
             payload: id
         }
         dispatch(action)
@@ -49,7 +49,7 @@ export const useTodo = () => {
     // Funcion para actualizar un Todo
     const handleUpdateTodo = (id, description) => {
         const action = {
-            type: "UpdateTodo",
+            type: "Update Todo",
             payload: {
                 id,
                 description
